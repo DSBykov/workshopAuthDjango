@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Auth Project</title>
+</head>
+<body>
+    <nav>
+        <div><a href="{% url 'home' %}">Главная</a></div>
+        {% if user.is_authenticated %}
+            <div>Привет, {{ user.username }} <a href="{% url 'logout-confirm' %}">Выйти</a></div>
+        {% else %}
+        <div><a href="{% url 'login' %}">Войти</a></div>
+        {% endif %}
+    </nav>
+    {% block content %}
+
+    {% endblock content %}
+</body>
+</html>

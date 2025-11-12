@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Выход из учетной записи</h1>
+    <div>Вы действительной хотите выйти?</div>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+    </form>
+{% endblock content %}
