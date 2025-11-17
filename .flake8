@@ -4,5 +4,6 @@ exclude =
     .git,
     __pycache__,
     migrations/,
-    settings/local.py
+    .venv
+    settings.py
 ignore = E203, W503

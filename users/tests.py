@@ -3,6 +3,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
 
+
 class AuthTests(TestCase):
     def setUp(self):
         """Подготовка данных перед каждым тестом"""
@@ -40,8 +41,9 @@ class AuthTests(TestCase):
         self.assertFalse(response.wsgi_request.user.is_authenticated)
         form = response.context['form']
         self.assertIn(
-            'Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут быть чувствительны к регистру.',
-            form.non_field_errors()
+            member='Пожалуйста, введите правильные имя пользователя и пароль. '
+                   'Оба поля могут быть чувствительны к регистру.',
+            container=form.non_field_errors()
         )
 
     def test_signin_view_get(self):
@@ -94,7 +96,6 @@ class AuthTests(TestCase):
             field='password2',
             errors='Введенные пароли не совпадают.',
         )
-
 
     def test_logout_confirm_view(self):
         """Проверка страницы подтверждения выхода"""
