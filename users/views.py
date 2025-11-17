@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 def home_view(request):
     return render(request, template_name='home.html')
 
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -21,6 +22,7 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, template_name='login.html', context={'form': form})
 
+
 def signin_view(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
@@ -32,6 +34,7 @@ def signin_view(request):
     elif request.method == 'GET':
         form = UserCreationForm()
     return render(request, template_name='signin.html', context={'form': form})
+
 
 def logout_confirm(request):
     return render(request, template_name='logout.html')

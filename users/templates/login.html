@@ -12,9 +12,12 @@
       </form>
     </div>
 
-    <div><a href="{% provider_login_url 'vk' %}">Войти с помощью ВК</a>
-</div>
+    <div>
+        <a href="{% provider_login_url 'vk' %}">Войти с помощью ВК</a>
+    </div>
 
-    <div>Если у вас нет аккаунта, пожалуйста зарегистрируйтесь: <a href="{% url 'signin' %}">Зарегистрироваться</a> </div>
+    <div>Если у вас нет аккаунта, пожалуйста зарегистрируйтесь:
+        <a href="{% url 'signin' %}">Зарегистрироваться</a>
+    </div>
 {% endblock content %}
 
